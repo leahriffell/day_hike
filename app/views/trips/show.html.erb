@@ -1,0 +1,19 @@
+<h1><%= @trip.name %></h1>
+
+<p>Start Date: <%= @trip.start_date %></p>
+<p>End Date: <%= @trip.end_date %></p>
+
+<h2>Trails</h2>
+
+<ul>
+    <% @trip.trails.each do |trail| %>
+        <li><%= trail.name %></li>
+    <% end %>
+</ul>
+
+<% trail = shortest_trail_for(@trip) %>
+<% if trail.present? %>
+  <p>Shortest trail on trip: <%= link_to trail.name, trail_path(trail) %></p>
+<% else %>
+  <p>No trails on this trip yet.</p>
+<% end %>

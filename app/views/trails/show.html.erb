@@ -1,0 +1,10 @@
+<h1><%= @trail.name %></h1>
+
+<p>Address: <%= @trail.address %></p>
+<p>Length: <%= @trail.length %></p>
+<p>Trips with this trail: <%= @trail.trips.count %></p>
+<ul>
+    <% @trail.trips.each do |trip| %>
+        <li><%= link_to trip.name, trip_path(trip) %></li>
+    <% end %>
+</ul>
